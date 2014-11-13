@@ -68,7 +68,7 @@ $( document ).ready(function() {
 });
 
 function get_stop_name_and_display(){
-	$.getJSON("http://itract.cs.kau.se:8081/proxy/api/otp/ws/transit/stopData?lat="+lat+"&lon="+lng+"&id="+stop_ids[0]+"&agency="+agencys[0],function(data){
+	$.getJSON(proxy_URL +"/api/otp/ws/transit/stopData?lat="+lat+"&lon="+lng+"&id="+stop_ids[0]+"&agency="+agencys[0],function(data){
 		console.log(data);
 	});	
 }
@@ -83,7 +83,7 @@ function get_data(){
 	var now = new Date();
 	start_time = Date.parse(now);
 	end_time = start_time+86400000;
-	$.getJSON("http://itract.cs.kau.se:8081/proxy/api/transit/arrivalsAndDeparturesForStop?lat="+lat+"&lon="+lng+"&agencyId=&stopId="+stop_ids[current_stop_count]+"&startTime="+start_time+"&endTime="+end_time+"&numArrivals=0&numDepartures="+departure_rows,function(data){
+	$.getJSON(proxy_URL +"/api/transit/arrivalsAndDeparturesForStop?lat="+lat+"&lon="+lng+"&agencyId=&stopId="+stop_ids[current_stop_count]+"&startTime="+start_time+"&endTime="+end_time+"&numArrivals=0&numDepartures="+departure_rows,function(data){
 		for(i = 0;i < data.length;i++){
 			for(j = 0;j < data[i].data.departures.length;j++){
 				departures.push(data[i].data.departures[j]);	
@@ -138,7 +138,7 @@ function load_alerts(){
 }
 
 function load_alerts_from_server(agency_stop_combinations,alert_messages){
-	$.getJSON("http://itract.cs.kau.se:8081/proxy/api/transit/alerts?lat="+lat+"&lon="+lng+"&agencyId="+agency_stop_combinations[0].agency+"&stopId="+agency_stop_combinations[0].stop,function(data){
+	$.getJSON(proxy_URL +"/api/transit/alerts?lat="+lat+"&lon="+lng+"&agencyId="+agency_stop_combinations[0].agency+"&stopId="+agency_stop_combinations[0].stop,function(data){
 		
 		for(var i = 0; i < data.length;i++){
 			for(var j = 0; j < data[i].data.patches.length;j++){

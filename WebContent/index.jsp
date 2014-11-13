@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/style.css" />
 <script src="jquery/jquery-2.1.1.min.js"></script>
+<script src="proxy_URL_config.js"></script>
 <script src="display.js"></script>
 </head>
 <body>
