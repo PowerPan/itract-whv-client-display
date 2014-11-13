@@ -1,0 +1,61 @@
+body{
+	background-color: #276da1;
+    color: white;
+    font-family: arial;
+    font-size: 40px;
+    margin: 0;
+}
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+}
+
+td{
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 0;
+}
+
+#td_stop_name{
+	text-align: center;
+	width: 100%;
+	padding: 0;
+}
+
+#td_destination_header{
+	width: 100%;
+	border-bottom: 3px solid white;
+    border-top: 3px solid white;
+}
+
+#td_departure_header{
+	text-align: right;
+	border-bottom: 3px solid white;
+    border-top: 3px solid white;
+}
+
+#td_route_header{
+	border-bottom: 3px solid white;
+    border-top: 3px solid white;
+}
+
+#td_clock{
+	text-align: right;
+	padding: 0;
+}
+
+#td_alerts{
+	padding: 0;
+	color: gold;
+}
+
+.departure_row td{
+	border-bottom: 1px solid white;
+}
+
+.departure{
+	text-align: right;
+}
