@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title id="title">Insert title here</title>
 <link rel="stylesheet" href="css/style.css" />
 <script src="jquery/jquery-2.1.1.min.js"></script>
 <script src="proxy_URL_config.js"></script>

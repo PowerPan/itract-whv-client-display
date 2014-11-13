@@ -1,5 +1,5 @@
 var departures = new Array();
-var stop_name = "Jade HS";
+//var stop_name = "Jade HS";
 var textsize = 40;
 var departure_rows = 0;
 var current_stop_count = 0;
@@ -15,6 +15,8 @@ var stop_ids = get_url_param("stops").split(",");
 var lat = get_url_param("lat");
 var lng = get_url_param("lng");
 var agencys = get_url_param("agencys").split(",");
+var stop_name = decodeURIComponent(get_url_param("stopname"));
+$("#title").html(stop_name);
 
 
 $( document ).ready(function() {
@@ -62,16 +64,9 @@ $( document ).ready(function() {
 	display_departures();
 	
 	load_alerts();
-	
-	get_stop_name_and_display();
+
 	
 });
-
-function get_stop_name_and_display(){
-	$.getJSON(proxy_URL +"/api/otp/ws/transit/stopData?lat="+lat+"&lon="+lng+"&id="+stop_ids[0]+"&agency="+agencys[0],function(data){
-		console.log(data);
-	});	
-}
 
 function display_departures(){
 	current_stop_count = 0;
@@ -83,6 +78,7 @@ function get_data(){
 	var now = new Date();
 	start_time = Date.parse(now);
 	end_time = start_time+86400000;
+	console.log(proxy_URL +"/api/transit/arrivalsAndDeparturesForStop?lat="+lat+"&lon="+lng+"&agencyId=&stopId="+stop_ids[current_stop_count]+"&startTime="+start_time+"&endTime="+end_time+"&numArrivals=0&numDepartures="+departure_rows)
 	$.getJSON(proxy_URL +"/api/transit/arrivalsAndDeparturesForStop?lat="+lat+"&lon="+lng+"&agencyId=&stopId="+stop_ids[current_stop_count]+"&startTime="+start_time+"&endTime="+end_time+"&numArrivals=0&numDepartures="+departure_rows,function(data){
 		for(i = 0;i < data.length;i++){
 			for(j = 0;j < data[i].data.departures.length;j++){
